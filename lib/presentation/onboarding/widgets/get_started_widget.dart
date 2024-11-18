@@ -1,3 +1,4 @@
+import 'package:fitness_app/presentation/onboarding/widgets/onboarding_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/ui/style/colors.dart';
@@ -21,11 +22,22 @@ class GetStartedWidget extends StatelessWidget {
               AppConstants.anakiwa,
             ])),
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const OnboardingWidget(), // The new screen to navigate to
+              ),
+            );
+          },
           child: const Text(
             "Get Started",
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold),
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                fontFamily: "Poppins",),
           ),
         ),
       ),
@@ -42,12 +54,16 @@ class GetStartedWidget extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
-                      fontSize: 36), // Default color
+                      fontSize: 36,
+                      fontFamily: "Poppins"), // Default color
                   children: [
                     TextSpan(
                       text: 'FY', // Text to be styled in red
                       style: TextStyle(
-                          color: AppConstants.malibuApprox), // Red color
+                        color: AppConstants.malibuApprox,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.bold,
+                      ), // Red color
                     ),
                   ],
                 ),
@@ -55,7 +71,7 @@ class GetStartedWidget extends StatelessWidget {
               Text(
                 "Everybody Can Train",
                 style: TextStyle(
-                    fontSize: 18), // Default color
+                    fontSize: 18, fontFamily: "Poppins"), // Default color
               ),
             ],
           ),

@@ -1,4 +1,5 @@
 import 'package:fitness_app/presentation/onboarding/widgets/get_started_widget.dart';
+import 'package:fitness_app/presentation/onboarding/widgets/onboarding_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
