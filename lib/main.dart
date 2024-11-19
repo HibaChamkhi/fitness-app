@@ -1,6 +1,7 @@
-import 'package:fitness_app/presentation/onboarding/widgets/get_started_widget.dart';
-import 'package:fitness_app/presentation/onboarding/widgets/onboarding_widget.dart';
+
+import 'package:fitness_app/presentation/auth/widgets/sign_up.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,12 +10,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: GetStartedWidget(),
+    return ScreenUtilInit(
+      designSize: const Size(360, 690), // Your design size
+      minTextAdapt: true,
+      builder: (context, child) {
+        return const MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: SignUpWidget(),
+        );
+      },
     );
   }
 }
