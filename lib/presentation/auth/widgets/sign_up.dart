@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../core/input_validation/validate_email.dart';
@@ -23,7 +24,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 100, horizontal: 20),
+        padding: EdgeInsets.symmetric(vertical: 50.h, horizontal: 20.w),
         child: Column(
           children: [
             Text(
@@ -38,7 +39,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                   fontFamily: "Poppins"),
             ),
             SizedBox(
-              height: 30,
+              height: 30.h,
             ),
             Form(
               key: _formKey,
@@ -48,45 +49,45 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                       hintText: 'First Name',
                       controller: _emailController,
                       prefixWidget: Container(
-                          width: 5,
+                          width: 5.w,
                           child: SvgPicture.asset(
                             "assets/icons/Profile.svg",
-                            width: 12,
-                            height: 15,
+                            width: 12.w,
+                            height: 15.h,
                             fit: BoxFit.scaleDown,
                             color: Colors.grey,
                           )),
                       validator: (value) => validateEmail(value!, context)),
                   SizedBox(
-                    height: 15,
+                    height: 15.h,
                   ),
                   InputField(
                       hintText: 'Last Name',
                       controller: _emailController,
                       prefixWidget: SvgPicture.asset(
                         "assets/icons/Profile.svg",
-                        width: 12,
-                        height: 15,
+                        width: 12.w,
+                        height: 15.h,
                         fit: BoxFit.scaleDown,
                         color: Colors.grey,
                       ),
                       validator: (value) => validateEmail(value!, context)),
                   SizedBox(
-                    height: 15,
+                    height: 15.h,
                   ),
                   InputField(
                       hintText: 'Email',
                       controller: _emailController,
                       prefixWidget: SvgPicture.asset(
                         "assets/icons/Message.svg",
-                        width: 12,
-                        height: 15,
+                        width: 12.w,
+                        height: 15.h,
                         fit: BoxFit.scaleDown,
                         color: Colors.grey,
                       ),
                       validator: (value) => validateEmail(value!, context)),
                   SizedBox(
-                    height: 15,
+                    height: 15.h,
                   ),
                   InputField(
                       hintText: 'Password',
@@ -101,13 +102,13 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                       ),
                       validator: (value) => validateEmail(value!, context)),
                   SizedBox(
-                    height: 15,
+                    height: 15.h,
                   ),
-                   const Row(
+                    Row(
                     children: [
                        Checkbox(value: true, onChanged: null),
                       SizedBox(
-                        width: 250,
+                        width: 250.w,
                         child: Text(
                           "By continuing you accept our Privacy Policy and Term of Use",
                           style: TextStyle(
@@ -121,11 +122,11 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                   Container(
                     width: double.infinity,
                     margin: EdgeInsets.symmetric(
-                      vertical: 50,
+                      vertical: 50.h,
                     ),
-                    padding: EdgeInsets.symmetric(vertical: 20),
+                    padding: EdgeInsets.symmetric(vertical: 20.h),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
+                        borderRadius: BorderRadius.circular(50.r),
                         gradient: const LinearGradient(
                             begin: Alignment.centerLeft,
                             stops: [

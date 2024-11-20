@@ -1,3 +1,4 @@
+import 'package:fitness_app/presentation/auth/widgets/goals.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -19,9 +20,46 @@ class _CompleteProfileState extends State<CompleteProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar:  Container(
+        width: double.infinity,
+        margin: EdgeInsets.symmetric(
+          vertical: 15.h, horizontal: 20.w
+        ),
+        padding: EdgeInsets.symmetric(vertical: 20.h),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50.r),
+            gradient:
+            const LinearGradient(begin: Alignment.centerLeft, stops: [
+              0.1,
+              0.9
+            ], colors: [
+              AppConstants.malibu,
+              AppConstants.anakiwa,
+            ])),
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const GoalsWidget(),
+              ),
+            );
+          },
+          child: const Text(
+            "Next",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              fontFamily: "Poppins",
+            ),
+          ),
+        ),
+      ),
       backgroundColor: Colors.white,
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding:  EdgeInsets.symmetric(horizontal: 20.h),
         child: Column(
           children: [
             Image.asset("assets/images/complete_profile.png"),
@@ -36,8 +74,8 @@ class _CompleteProfileState extends State<CompleteProfile> {
               "It will help us to know more about you!",
               style: TextStyle(fontSize: 12, fontFamily: "Poppins"),
             ),
-            const SizedBox(
-              height: 25,
+             SizedBox(
+              height: 25.h,
             ),
             Form(
                 child: Column(
@@ -61,7 +99,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           controller: _weightController,
                           prefixWidget: Image.asset(
                             "assets/icons/weight-scale 1.png",
-                            width: 12,
+                            width: 12.w,
                             height: 15.h,
                             fit: BoxFit.scaleDown,
                             color: Colors.grey,
@@ -71,7 +109,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                     Container(
                       padding: EdgeInsets.all(16.w),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(14),
+                          borderRadius: BorderRadius.circular(14.r),
                           gradient: const LinearGradient(
                               begin: Alignment.centerLeft,
                               stops: [
@@ -104,7 +142,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           controller: _weightController,
                           prefixWidget: SvgPicture.asset(
                             "assets/icons/Swap.svg",
-                            width: 12,
+                            width: 12.w,
                             height: 15.h,
                             fit: BoxFit.scaleDown,
                             color: Colors.grey,
@@ -114,7 +152,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                     Container(
                       padding: EdgeInsets.all(16.w),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(14),
+                          borderRadius: BorderRadius.circular(14.r),
                           gradient: const LinearGradient(
                               begin: Alignment.centerLeft,
                               stops: [
@@ -136,43 +174,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                 )
               ],
             )),
-            Container(
-              width: double.infinity,
-              margin: EdgeInsets.symmetric(
-                vertical: 30.h,
-              ),
-              padding: EdgeInsets.symmetric(vertical: 20),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  gradient:
-                      const LinearGradient(begin: Alignment.centerLeft, stops: [
-                    0.1,
-                    0.9
-                  ], colors: [
-                    AppConstants.malibu,
-                    AppConstants.anakiwa,
-                  ])),
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const CompleteProfile(),
-                    ),
-                  );
-                },
-                child: const Text(
-                  "Next",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: "Poppins",
-                  ),
-                ),
-              ),
-            ),
+
           ],
         ),
       ),
@@ -181,17 +183,17 @@ class _CompleteProfileState extends State<CompleteProfile> {
 
   Widget _buildGenderField() {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+      padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 18.h),
       decoration: BoxDecoration(
         color: Colors.grey[100],
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.r),
       ),
       child: DropdownButtonFormField<String>(
         value: selectedGender,
         hint: Row(
           children: [
             Icon(Icons.person_outline, color: Colors.grey),
-            const SizedBox(width: 12),
+             SizedBox(width: 12.w),
             Text(
               "Choose Gender",
               style: TextStyle(color: Colors.grey, fontSize: 16),
@@ -235,7 +237,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
         }
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+        padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 18.h),
         decoration: BoxDecoration(
           color: Colors.grey[100],
           borderRadius: BorderRadius.circular(16),
@@ -246,7 +248,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
             Row(
               children: [
                 Icon(Icons.calendar_today_outlined, color: Colors.grey),
-                const SizedBox(width: 12),
+                 SizedBox(width: 12.w),
                 Text(
                   "Date of Birth",
                   style: TextStyle(color: Colors.grey, fontSize: 16),
