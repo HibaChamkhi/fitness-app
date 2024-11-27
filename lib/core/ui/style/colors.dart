@@ -11,6 +11,7 @@ class AppConstants {
   static const Color empress = Color(0xFF7B6F72);
   static const Color martini = Color(0xFFADA4A5);
   static const Color alto = Color(0xFFDDDADA);
+  static const Color grayChateau = Color(0xFFA4A9AD);
   static const Color blackHaze = Color(0xFFF7F8F8);
 
 
