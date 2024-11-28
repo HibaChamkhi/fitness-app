@@ -22,7 +22,7 @@ Widget waterIntakeCard() {
               // Background of the bar
               Container(
                 width: 20,
-                height: 300, // Total height of the bar
+                height: 370, // Total height of the bar
                 decoration: BoxDecoration(
                   color: Colors.grey.shade300,
                   borderRadius: BorderRadius.circular(6),

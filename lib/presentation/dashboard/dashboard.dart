@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:fitness_app/presentation/notification/widgets/notfication.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fitness_app/core/ui/style/colors.dart';
@@ -7,6 +8,7 @@ import 'package:fitness_app/presentation/dashboard/water_intake_card.dart';
 import 'package:fitness_app/presentation/dashboard/workout_item.dart';
 import 'package:fitness_app/presentation/dashboard/workout_progress.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import '../activity_tracker/activity_tracker.dart';
 import 'activity_status.dart';
 import 'calories_card.dart';
 import 'circular_chart.dart';
@@ -48,7 +50,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 100, horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -91,10 +93,20 @@ class _DashboardWidgetState extends State<DashboardWidget> {
             ),
           ],
         ),
-        SvgPicture.asset(
-          "assets/icons/Notification.svg",
-          fit: BoxFit.scaleDown,
-          height: 45,
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const NotificationWidget(), // Replace with your new screen
+              ),
+            );
+          },
+          child: SvgPicture.asset(
+            "assets/icons/Notification.svg",
+            fit: BoxFit.scaleDown,
+            height: 45,
+          ),
         ),
       ],
     );
@@ -183,19 +195,29 @@ class _DashboardWidgetState extends State<DashboardWidget> {
   }
 
   Widget _buildCheckButton() {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-      child: const Text(
-        "Check",
-        style: TextStyle(fontSize: 16, color: Colors.white),
-      ),
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          begin: Alignment.centerLeft,
-          stops: [0.1, 0.9],
-          colors: [AppConstants.malibu, AppConstants.anakiwa],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const ActivityTrackerWidget(),
+          ),
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+        child: const Text(
+          "Check",
+          style: TextStyle(fontSize: 16, color: Colors.white),
         ),
-        borderRadius: BorderRadius.circular(50),
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            begin: Alignment.centerLeft,
+            stops: [0.1, 0.9],
+            colors: [AppConstants.malibu, AppConstants.anakiwa],
+          ),
+          borderRadius: BorderRadius.circular(50),
+        ),
       ),
     );
   }
@@ -235,12 +257,12 @@ class _DashboardWidgetState extends State<DashboardWidget> {
             children: [
               SizedBox(
                 width: 150,
-                child: Expanded(child: sleepCard()),
+                child: sleepCard(), // Removed Expanded
               ),
-              const SizedBox(width: 16),
+              const SizedBox(height: 16), // Changed from `width` to `height`
               SizedBox(
                 width: 150,
-                child: Expanded(child: caloriesCard()),
+                child: caloriesCard(), // Removed Expanded
               ),
             ],
           ),
