@@ -33,6 +33,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
         child: Column(

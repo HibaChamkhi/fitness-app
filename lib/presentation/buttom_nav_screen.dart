@@ -1,13 +1,16 @@
 import 'package:fitness_app/core/ui/style/colors.dart';
+import 'package:fitness_app/presentation/profile/widgets/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 import 'dashboard/dashboard.dart';
 
-class MyHomePage extends StatelessWidget {
+class BottomNavBarWidget extends StatelessWidget {
   final PersistentTabController _controller =
   PersistentTabController(initialIndex: 0);
+
+  BottomNavBarWidget({super.key});
 
   List<Widget> _buildScreens() {
     return [
@@ -15,13 +18,13 @@ class MyHomePage extends StatelessWidget {
       Center(child: Text("Activity")),
       Center(child: Text("Search")),
       Center(child: Text("Camera")),
-      Center(child: Text("Profile")),
+      Center(child: ProfileWidget()),
     ];
   }
   Widget gradientIcon(String assetPath) {
     return ShaderMask(
       shaderCallback: (Rect bounds) {
-        return LinearGradient(
+        return const LinearGradient(
           colors: [AppConstants.kobi, AppConstants.perfume],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -91,7 +94,7 @@ class MyHomePage extends StatelessWidget {
       controller: _controller,
       screens: _buildScreens(),
       items: _navBarsItems(),
-      confineInSafeArea: true,
+      confineToSafeArea: true,
       backgroundColor: Colors.white,
       handleAndroidBackButtonPress: true,
       resizeToAvoidBottomInset: true,
@@ -104,3 +107,5 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
+
+

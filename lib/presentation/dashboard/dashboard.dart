@@ -48,6 +48,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
@@ -95,12 +96,12 @@ class _DashboardWidgetState extends State<DashboardWidget> {
         ),
         GestureDetector(
           onTap: () {
-            Navigator.push(
-              context,
+            Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => const NotificationWidget(), // Replace with your new screen
+                builder: (context) => const NotificationWidget(),
               ),
             );
+
           },
           child: SvgPicture.asset(
             "assets/icons/Notification.svg",
