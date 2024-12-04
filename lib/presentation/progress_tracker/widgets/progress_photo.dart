@@ -1,8 +1,12 @@
+import 'package:fitness_app/core/ui/widgets/input_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 import '../../../core/ui/style/colors.dart';
+import 'comparison.dart';
 
 class ProgressPhotoWidget extends StatefulWidget {
   const ProgressPhotoWidget({super.key});
@@ -62,7 +66,7 @@ class _ProgressPhotoWidgetState extends State<ProgressPhotoWidget> {
 
   Widget _buildReminder() {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+      padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 15.w),
       decoration: BoxDecoration(
         color: Colors.red.withOpacity(0.15),
         borderRadius: BorderRadius.circular(16),
@@ -74,14 +78,14 @@ class _ProgressPhotoWidgetState extends State<ProgressPhotoWidget> {
           Image.asset("assets/images/Reminder.png"),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               Text(
                 "Reminder!",
-                style: TextStyle(fontSize: 18, color: Colors.red),
+                style: TextStyle(fontSize: 16.sp, color: Colors.red),
               ),
               Text(
                 "Next Photos Fall On July 08",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -93,7 +97,7 @@ class _ProgressPhotoWidgetState extends State<ProgressPhotoWidget> {
 
   Widget _buildTrackProgressSection() {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+      padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 15.w),
       decoration: BoxDecoration(
         color: AppConstants.malibu.withOpacity(0.2),
         borderRadius: BorderRadius.circular(16),
@@ -112,14 +116,14 @@ class _ProgressPhotoWidgetState extends State<ProgressPhotoWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(
-          width: 220,
+        SizedBox(
+          width: 170.w,
           child: Text(
             "Track Your Progress Each Month With Photo",
-            style: TextStyle(fontSize: 18),
+            style: TextStyle(fontSize: 16.sp),
           ),
         ),
-        const SizedBox(height: 15),
+        SizedBox(height: 15.h),
         _buildLearnMoreButton(),
       ],
     );
@@ -136,7 +140,7 @@ class _ProgressPhotoWidgetState extends State<ProgressPhotoWidget> {
         // );
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+        padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 15.w),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.centerLeft,
@@ -145,9 +149,9 @@ class _ProgressPhotoWidgetState extends State<ProgressPhotoWidget> {
           ),
           borderRadius: BorderRadius.circular(50),
         ),
-        child: const Text(
+        child: Text(
           "Learn More",
-          style: TextStyle(fontSize: 16, color: Colors.white),
+          style: TextStyle(fontSize: 14.sp, color: Colors.white),
         ),
       ),
     );
@@ -155,7 +159,7 @@ class _ProgressPhotoWidgetState extends State<ProgressPhotoWidget> {
 
   Widget _buildTodayTargetSection() {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+      padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 15.w),
       decoration: BoxDecoration(
         color: AppConstants.malibu.withOpacity(0.2),
         borderRadius: BorderRadius.circular(16),
@@ -163,9 +167,9 @@ class _ProgressPhotoWidgetState extends State<ProgressPhotoWidget> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text(
+          Text(
             "Compare my Photo",
-            style: TextStyle(fontSize: 18),
+            style: TextStyle(fontSize: 18.sp),
           ),
           _buildCheckButton(),
         ],
@@ -176,15 +180,15 @@ class _ProgressPhotoWidgetState extends State<ProgressPhotoWidget> {
   Widget _buildCheckButton() {
     return GestureDetector(
       onTap: () {
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (context) => const (),
-        //   ),
-        // );
+        PersistentNavBarNavigator.pushNewScreen(
+          context,
+          screen: ComparisonWidget(),
+          withNavBar: false, // OPTIONAL VALUE. True by default.
+          pageTransitionAnimation: PageTransitionAnimation.cupertino,
+        );
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+        padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 15.w),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.centerLeft,
@@ -193,9 +197,9 @@ class _ProgressPhotoWidgetState extends State<ProgressPhotoWidget> {
           ),
           borderRadius: BorderRadius.circular(50),
         ),
-        child: const Text(
+        child: Text(
           "Compare",
-          style: TextStyle(fontSize: 16, color: Colors.white),
+          style: TextStyle(fontSize: 16.sp, color: Colors.white),
         ),
       ),
     );
@@ -206,7 +210,7 @@ class _ProgressPhotoWidgetState extends State<ProgressPhotoWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _buildGalleryHeader(),
-        SizedBox(height: 15),
+        SizedBox(height: 15.h),
         _buildGalleryImages(),
       ],
     );
@@ -215,15 +219,15 @@ class _ProgressPhotoWidgetState extends State<ProgressPhotoWidget> {
   Widget _buildGalleryHeader() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: const [
+      children: [
         Text(
           "Gallery",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
         ),
         Text(
           "See more",
           style: TextStyle(
-            fontSize: 18,
+            fontSize: 18.sp,
             color: AppConstants.grayChateau,
           ),
         ),
@@ -246,9 +250,9 @@ class _ProgressPhotoWidgetState extends State<ProgressPhotoWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(date),
-        const SizedBox(height: 10),
+        SizedBox(height: 10.h),
         Container(
-          height: 100,
+          height: 100.h,
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: List.generate(6, (index) {

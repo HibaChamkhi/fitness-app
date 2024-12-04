@@ -1,3 +1,4 @@
+import 'package:fitness_app/presentation/auth/widgets/sign_up.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -66,20 +67,30 @@ class _SignInWidgetState extends State<SignInWidget> {
                 ),
               ),
             ),
-            const Text.rich(
-              TextSpan(
-                text: 'Don’t have an account yet? ',
-                style: TextStyle(
-                    color: Colors.black, fontSize: 14, fontFamily: "Poppins"),
-                children: [
-                  TextSpan(
-                    text: 'Register',
-                    style: TextStyle(
-                      color: AppConstants.malibuApprox,
-                      fontFamily: "Poppins",
-                    ), // Red color
+            InkWell(
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SignUpWidget(), // The new screen to navigate to
                   ),
-                ],
+                );
+              },
+              child: const Text.rich(
+                TextSpan(
+                  text: 'Don’t have an account yet? ',
+                  style: TextStyle(
+                      color: Colors.black, fontSize: 14, fontFamily: "Poppins"),
+                  children: [
+                    TextSpan(
+                      text: 'Register',
+                      style: TextStyle(
+                        color: AppConstants.malibuApprox,
+                        fontFamily: "Poppins",
+                      ), // Red color
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

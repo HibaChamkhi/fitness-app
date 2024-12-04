@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/ui/style/colors.dart';
+import 'package:fitness_app/presentation/auth/widgets/sign_in.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingPage {
@@ -56,6 +57,13 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
       _pageController.nextPage(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
+      );
+    }else{
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const SignInWidget(), // The new screen to navigate to
+        ),
       );
     }
   }

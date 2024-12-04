@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NotificationItem extends StatelessWidget {
   final String title;
@@ -15,7 +16,7 @@ class NotificationItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+      padding: EdgeInsets.symmetric(vertical: 8.0.h, horizontal: 16.0.w),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -23,24 +24,29 @@ class NotificationItem extends StatelessWidget {
             children: [
               Image.asset(
                 image,
-                width: 40,
-                height: 40,
+                width: 40.w,
+                height: 40.w,
                 fit: BoxFit.scaleDown,
               ),
-              const SizedBox(width: 15),
+              SizedBox(width: 15.w),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
+                  SizedBox(
+                    width: 200.w,
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18.sp,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   Text(
                     subtitle,
-                    style: const TextStyle(fontSize: 15),
+                    style: TextStyle(fontSize: 15.sp),
                   ),
                 ],
               ),

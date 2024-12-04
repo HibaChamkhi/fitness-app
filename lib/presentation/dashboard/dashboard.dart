@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:fitness_app/presentation/notification/widgets/notfication.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fitness_app/core/ui/style/colors.dart';
 import 'package:fitness_app/presentation/dashboard/sleep_card.dart';
@@ -8,6 +9,7 @@ import 'package:fitness_app/presentation/dashboard/water_intake_card.dart';
 import 'package:fitness_app/presentation/dashboard/workout_item.dart';
 import 'package:fitness_app/presentation/dashboard/workout_progress.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import '../activity_tracker/activity_tracker.dart';
 import 'activity_status.dart';
 import 'calories_card.dart';
@@ -96,12 +98,12 @@ class _DashboardWidgetState extends State<DashboardWidget> {
         ),
         GestureDetector(
           onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => const NotificationWidget(),
-              ),
+            PersistentNavBarNavigator.pushNewScreen(
+              context,
+              screen: NotificationWidget(),
+              withNavBar: false, // OPTIONAL VALUE. True by default.
+              pageTransitionAnimation: PageTransitionAnimation.cupertino,
             );
-
           },
           child: SvgPicture.asset(
             "assets/icons/Notification.svg",
@@ -198,11 +200,11 @@ class _DashboardWidgetState extends State<DashboardWidget> {
   Widget _buildCheckButton() {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
+        PersistentNavBarNavigator.pushNewScreen(
           context,
-          MaterialPageRoute(
-            builder: (context) => const ActivityTrackerWidget(),
-          ),
+          screen: ActivityTrackerWidget(),
+          withNavBar: false, // OPTIONAL VALUE. True by default.
+          pageTransitionAnimation: PageTransitionAnimation.cupertino,
         );
       },
       child: Container(
@@ -249,20 +251,21 @@ class _DashboardWidgetState extends State<DashboardWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          width: MediaQuery.of(context).size.width * 0.5,
+          width: MediaQuery.of(context).size.width.w * 0.40,
           child: waterIntakeCard(),
         ),
         SizedBox(
-          height: 450,
+          height: 350.h,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(
-                width: 150,
+                width: 150.w,
                 child: sleepCard(), // Removed Expanded
               ),
-              const SizedBox(height: 16), // Changed from `width` to `height`
+               SizedBox(height: 16.h), // Changed from `width` to `height`
               SizedBox(
-                width: 150,
+                width: 150.w,
                 child: caloriesCard(), // Removed Expanded
               ),
             ],

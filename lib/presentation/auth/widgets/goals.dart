@@ -22,16 +22,16 @@ class _GoalsWidgetState extends State<GoalsWidget> {
         child: Column(
           children: [
              SizedBox(height: 20.h),
-            const Text(
+             Text(
               "What is your goal?",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,  fontFamily: "Poppins",),
+              style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold,  fontFamily: "Poppins",),
             ),
              Padding(
               padding: EdgeInsets.symmetric(vertical: 8.0.h, horizontal: 60.w),
               child: Text(
                 "It will help us to choose the best program for you",
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.grey, fontSize: 16 , fontFamily: "Poppins",),
+                style: TextStyle(color: Colors.grey, fontSize: 16.sp , fontFamily: "Poppins",),
               ),
             ),
              SizedBox(height: 20.h),
@@ -97,12 +97,12 @@ class _GoalsWidgetState extends State<GoalsWidget> {
                     ),
                   );
                 },
-                child: const Text(
+                child:  Text(
                   "Confirm",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     fontWeight: FontWeight.bold,
                     fontFamily: "Poppins",
                   ),
@@ -155,18 +155,18 @@ class GoalCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(imagePath),
-             SizedBox(height: 20.h),
+            Image.asset(imagePath,height: 250.h,),
+             SizedBox(height: 18.h),
             Text(
               title,
-              style: const TextStyle(
-                fontSize: 20,
+              style:  TextStyle(
+                fontSize: 18.sp,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,  fontFamily: "Poppins",
               ),
             ),
             Divider(
-              height: 5,
+              height: 5.h,
               color: Colors.white,
               thickness: 1.5,
               indent: 120,
@@ -174,11 +174,11 @@ class GoalCard extends StatelessWidget {
             ),
              SizedBox(height: 10.h),
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
+              padding:  EdgeInsets.symmetric(horizontal: 18.0.w),
               child: Text(
                 description,
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.white,fontSize: 16,  fontFamily: "Poppins",),
+                style:  TextStyle(color: Colors.white,fontSize: 14.sp,  fontFamily: "Poppins",),
               ),
             ),
           ],

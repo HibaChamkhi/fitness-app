@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../core/ui/style/colors.dart';
 
@@ -28,27 +29,25 @@ class LatestActivityScreen extends StatelessWidget {
             ],
           ),
           SizedBox(height: 25,),
-          Container(
-            height: 200,
-            child: Expanded(
-              child: ListView(
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                children: [
-                  ActivityTile(
-                    icon: "assets/images/LatestPic1.png",
-                    title: 'Drinking 300ml Water',
-                    time: 'About 3 minutes ago',
-                    iconBackground: Colors.blue.shade100,
-                  ),
-                  SizedBox(height: 10),
-                  ActivityTile(
-                    icon: "assets/images/LatestPic2.png",
-                    title: 'Eat Snack (Fitbar)',
-                    time: 'About 10 minutes ago',
-                    iconBackground: Colors.pink.shade100,
-                  ),
-                ],
-              ),
+          SizedBox(
+            height: 200.h,
+            child: ListView(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              children: [
+                ActivityTile(
+                  icon: "assets/images/LatestPic1.png",
+                  title: 'Drinking 300ml Water',
+                  time: 'About 3 minutes ago',
+                  iconBackground: Colors.blue.shade100,
+                ),
+                SizedBox(height: 10),
+                ActivityTile(
+                  icon: "assets/images/LatestPic2.png",
+                  title: 'Eat Snack (Fitbar)',
+                  time: 'About 10 minutes ago',
+                  iconBackground: Colors.pink.shade100,
+                ),
+              ],
             ),
           ),
         ],
