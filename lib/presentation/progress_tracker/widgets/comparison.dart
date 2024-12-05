@@ -131,6 +131,7 @@ class _ComparisonWidgetState extends State<ComparisonWidget> {
                   children: [
                     DropdownButtonFormField<String>(
                       value: selectedMonth1,
+                      dropdownColor: Colors.white,
                       items: months
                           .map((month) => DropdownMenuItem<String>(
                         value: month,
@@ -143,14 +144,24 @@ class _ComparisonWidgetState extends State<ComparisonWidget> {
                         });
                       },
                       decoration: InputDecoration(
-                        labelText: 'Select Month 1',
-                        border: OutlineInputBorder(),
+                        filled: true, // Enables background fill
+                        fillColor: Colors.grey.withOpacity(0.2), // Sets the background color to grey
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12), // Sets border radius
+                          borderSide: BorderSide.none, // Removes the border line
+                        ),
+                        prefixIcon: Icon(Icons.calendar_today, color: Colors.grey), // Adds an icon on the left
+                      ),
+                      hint: Text(
+                        'Select a month 1', // Placeholder text
+                        style: TextStyle(color: Colors.grey), // White text color for placeholder
                       ),
                     ),
+
                     SizedBox(height: 20),
-                    // Dropdown for the second month
                     DropdownButtonFormField<String>(
                       value: selectedMonth2,
+                      dropdownColor: Colors.white,
                       items: months
                           .map((month) => DropdownMenuItem<String>(
                         value: month,
@@ -163,8 +174,17 @@ class _ComparisonWidgetState extends State<ComparisonWidget> {
                         });
                       },
                       decoration: InputDecoration(
-                        labelText: 'Select Month 2',
-                        border: OutlineInputBorder(),
+                        filled: true, // Enables background fill
+                        fillColor: Colors.grey.withOpacity(0.2), // Sets the background color to grey
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12), // Sets border radius
+                          borderSide: BorderSide.none, // Removes the border line
+                        ),
+                        prefixIcon: Icon(Icons.calendar_today, color: Colors.grey), // Adds an icon on the left
+                      ),
+                      hint: Text(
+                        'Select a month 2', // Placeholder text
+                        style: TextStyle(color: Colors.grey), // White text color for placeholder
                       ),
                     ),
                     SizedBox(height: 40),

@@ -66,7 +66,7 @@ class _ProgressPhotoWidgetState extends State<ProgressPhotoWidget> {
 
   Widget _buildReminder() {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 15.w),
+      padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 10.w),
       decoration: BoxDecoration(
         color: Colors.red.withOpacity(0.15),
         borderRadius: BorderRadius.circular(16),
@@ -81,11 +81,11 @@ class _ProgressPhotoWidgetState extends State<ProgressPhotoWidget> {
             children: [
               Text(
                 "Reminder!",
-                style: TextStyle(fontSize: 16.sp, color: Colors.red),
+                style: TextStyle(fontSize: 14.sp, color: Colors.red),
               ),
               Text(
                 "Next Photos Fall On July 08",
-                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -258,7 +258,15 @@ class _ProgressPhotoWidgetState extends State<ProgressPhotoWidget> {
             children: List.generate(6, (index) {
               return Padding(
                 padding: const EdgeInsets.only(right: 10),
-                child: Image.asset("assets/images/Gallery1.png"),
+                child:ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(
+                    "assets/images/FrontFacing2.png",
+                    width: 150,
+                    height: 150,
+                    fit: BoxFit.scaleDown,
+                  ),
+                )
               );
             }),
           ),

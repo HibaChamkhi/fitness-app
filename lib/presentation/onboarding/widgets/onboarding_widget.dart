@@ -77,6 +77,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           Expanded(

@@ -263,7 +263,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                 width: 150.w,
                 child: sleepCard(), // Removed Expanded
               ),
-               SizedBox(height: 16.h), // Changed from `width` to `height`
+              SizedBox(height: 16.h), // Changed from `width` to `height`
               SizedBox(
                 width: 150.w,
                 child: caloriesCard(), // Removed Expanded
@@ -288,16 +288,21 @@ class _DashboardWidgetState extends State<DashboardWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          "Latest Workout",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
-        const Text(
-          "See more",
-          style: TextStyle(
-            fontSize: 18,
-            color: AppConstants.grayChateau,
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text(
+              "Latest Workout",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const Text(
+              "See more",
+              style: TextStyle(
+                fontSize: 18,
+                color: AppConstants.grayChateau,
+              ),
+            ),
+          ],
         ),
         SizedBox(
           height: 300,

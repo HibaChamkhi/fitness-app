@@ -9,6 +9,7 @@ class GetStartedWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       bottomNavigationBar: Container(
         margin: EdgeInsets.symmetric(vertical: 50, horizontal: 20),
         padding: EdgeInsets.symmetric(vertical: 20),
