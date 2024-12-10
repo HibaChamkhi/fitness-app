@@ -1,5 +1,6 @@
 import 'package:fitness_app/presentation/buttom_nav_screen.dart';
 import 'package:fitness_app/presentation/onboarding/widgets/get_started_widget.dart';
+import 'package:fitness_app/presentation/sleep_tracker/sleep_tracker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return  MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: GetStartedWidget(),
+          home: SleepTrackerWidget(),
         );
       },
     );

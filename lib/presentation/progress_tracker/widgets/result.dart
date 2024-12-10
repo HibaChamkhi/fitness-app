@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/ui/style/colors.dart';
+import '../../../core/ui/widgets/gradient_progress_bar.dart';
 
 class ResultWidget extends StatefulWidget {
   final String month1;
@@ -17,7 +18,7 @@ class ResultWidget extends StatefulWidget {
 }
 
 class _ResultWidgetState extends State<ResultWidget> {
-  bool isDeliverSelected = true;
+  bool isPhotoSelected = true;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class _ResultWidgetState extends State<ResultWidget> {
             SizedBox(height: 25),
             _buildSelectionButtons(),
             SizedBox(height: 15),
-            isDeliverSelected
+            isPhotoSelected
                 ? _buildPhotoSection()
                 : FitnessAnalytics(
                     month1: widget.month1,
@@ -124,13 +125,13 @@ class _ResultWidgetState extends State<ResultWidget> {
         children: [
           _buildSelectionButton(
             label: 'Photo',
-            isSelected: isDeliverSelected,
-            onTap: () => setState(() => isDeliverSelected = true),
+            isSelected: isPhotoSelected,
+            onTap: () => setState(() => isPhotoSelected = true),
           ),
           _buildSelectionButton(
             label: 'Statistic',
-            isSelected: !isDeliverSelected,
-            onTap: () => setState(() => isDeliverSelected = false),
+            isSelected: !isPhotoSelected,
+            onTap: () => setState(() => isPhotoSelected = false),
           ),
         ],
       ),
@@ -203,7 +204,11 @@ class _ResultWidgetState extends State<ResultWidget> {
             ),
           ],
         ),
-        GradientProgressBar(percentage: 62),
+        GradientProgressBar(percentage: 62, colors: [
+          AppConstants.perfume,
+          AppConstants.perfumeApprox,
+          AppConstants.malibu,
+        ], barColor: Colors.grey[300]!.withOpacity(0.3),),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -269,58 +274,7 @@ class _ResultWidgetState extends State<ResultWidget> {
   }
 }
 
-class GradientProgressBar extends StatelessWidget {
-  final double percentage;
 
-  const GradientProgressBar({required this.percentage, Key? key})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 15),
-      child: Stack(
-        children: [
-          Container(
-            height: 20,
-            decoration: BoxDecoration(
-              color: Colors.grey[300]?.withOpacity(0.3),
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
-          FractionallySizedBox(
-            widthFactor: percentage / 100,
-            child: Container(
-              height: 20,
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [
-                    AppConstants.perfume,
-                    AppConstants.perfumeApprox,
-                    AppConstants.malibu,
-                  ],
-                ),
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-          ),
-          Positioned.fill(
-            child: Center(
-              child: Text(
-                '${percentage.toInt()}%',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
 
 class FitnessAnalytics extends StatelessWidget {
   final String month1;
