@@ -4,7 +4,8 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WorkoutProgress extends StatefulWidget {
-  const WorkoutProgress({super.key});
+  const WorkoutProgress({super.key, required this.text});
+  final String text ;
 
   @override
   _WorkoutProgressState createState() => _WorkoutProgressState();
@@ -63,9 +64,9 @@ class _WorkoutProgressState extends State<WorkoutProgress> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
-              "Workout Progress",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+             Text(
+              widget.text,
+              style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
             ),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 12),
@@ -95,7 +96,7 @@ class _WorkoutProgressState extends State<WorkoutProgress> {
                     value: value,
                     child: Text(
                       value,
-                      style: TextStyle(color: Colors.white), // Text color inside dropdown
+                      style: TextStyle(color: Colors.white,fontSize: 12.sp), // Text color inside dropdown
                     ),
                   );
                 }).toList(),
@@ -120,6 +121,7 @@ class _WorkoutProgressState extends State<WorkoutProgress> {
                     showTitles: false, // Disable the left titles
                   ),
                 ),
+                topTitles: AxisTitles(),
                 rightTitles: AxisTitles(
                   // Add right titles for percentages
                   axisNameSize: 9,

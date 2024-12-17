@@ -1,6 +1,8 @@
 import 'package:fitness_app/core/ui/style/colors.dart';
+import 'package:fitness_app/presentation/meal_planner/widgets/meal_planner.dart';
 import 'package:fitness_app/presentation/profile/widgets/profile.dart';
 import 'package:fitness_app/presentation/progress_tracker/widgets/progress_photo.dart';
+import 'package:fitness_app/presentation/workout_tracker/widgets/workout_tracker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
@@ -16,8 +18,8 @@ class BottomNavBarWidget extends StatelessWidget {
   List<Widget> _buildScreens() {
     return [
       Center(child: DashboardWidget()),
-      Center(child: Text("Activity")),
-      Center(child: Text("Search")),
+      Center(child: MealPlannerWidget()),
+      Center(child: WorkoutTrackerWidget()),
       Center(child: ProgressPhotoWidget()),
       Center(child: ProfileWidget()),
     ];

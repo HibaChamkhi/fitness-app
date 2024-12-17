@@ -279,7 +279,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(height: 400, child: const WorkoutProgress()),
+        Container(height: 400, child: const WorkoutProgress(text: "Workout Progress",)),
       ],
     );
   }
